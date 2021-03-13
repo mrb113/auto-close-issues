@@ -1,3 +1,4 @@
+console.log("Checking if issue needs to be closed...");
 const fs = require("fs");
 const core = require("@actions/core");
 const github = require("@actions/github");
@@ -5,7 +6,8 @@ const mdjson = require("mdjson");
 
 const ISSUE_TEMPLATE_DIR = ".github/ISSUE_TEMPLATE";
 
-// Grab the closing message from params or fallback to a default message
+// Grab the 
+message from params or fallback to a default message
 const getIssueCloseMessage = () => {
   const message =
     core.getInput("issue-close-message") ||
@@ -25,6 +27,7 @@ const getIssueCloseMessage = () => {
   );
 
   const { payload } = github.context;
+  console.log(payload);
 
   const issueBodyMarkdown = payload.issue.body;
   // Get all the markdown titles from the issue body
